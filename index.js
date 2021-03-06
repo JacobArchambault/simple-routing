@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     var name = req.query.name; //e.g. localhost:3000?name=larry
     if (name) {
         res.send('Hi, ' + name + ", nice to meet you.");
@@ -11,15 +11,15 @@ app.get('/', function(req, res) {
     }
 });
 
-app.get('/about', function(req, res) {
+app.get('/about', (req, res) => {
     res.send('This is the about page.');
 });
 
-app.post('/login', function(req, res) {
+app.get('/login', (req, res) => {
     res.send('This is the login page.');
 });
 
-app.use(function (req, res) {
+app.use((req, res) => {
     res.status(404).send("Sorry, no such page!")
 });
 
